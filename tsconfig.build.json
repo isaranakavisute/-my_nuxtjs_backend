@@ -1,0 +1,13 @@
+// Build config: compiles only src/ with rootDir src, so the entry point lands
+// at dist/index.js. The root tsconfig.json keeps rootDir "." so that editors
+// and `npm run typecheck` also cover scripts/, but that layout would emit
+// dist/src/index.js — which is why the build uses this file instead.
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "scripts"]
+}
